@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizeCss: false   // Disable LightningCSS for Linux builds
+    optimizeCss: false,
+    css: false
   },
 
   serverExternalPackages: ['swisseph'],
