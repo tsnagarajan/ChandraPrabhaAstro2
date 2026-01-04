@@ -1,6 +1,7 @@
 {
   "build": {
-    "builder": "nixpacks"
+    "builder": "NIXPACKS",
+    "nixpacksPlan": "nixpacks.toml"
   },
   "deploy": {
     "startCommand": "npm run start",
