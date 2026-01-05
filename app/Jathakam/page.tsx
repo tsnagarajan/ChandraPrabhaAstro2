@@ -2285,7 +2285,7 @@ const { summary, interpretation } = useMemo(() => {
           </form>
         </div> {/* This closes id="pdf-content" */}
         {out && (
-          <div id="report">
+          <div id="print-root">
             {/* ========================= REPORT ========================= */}
             {/* ---------- PAGE 1: Summary + Pañchāṅga + D1 ---------- */}
             <section className="page-section first">
