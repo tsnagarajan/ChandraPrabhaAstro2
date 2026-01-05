@@ -21,32 +21,18 @@ html, body {
 /* Print Styles (Only active when printing) */
 /* ======================================= */
 @media print {
-  /* Hides elements that should only appear on screen (e.g., headers, buttons) */
-  .export-bar, .screen-only, header { 
-    display: none !important; 
-  } 
 
-  /* Shows elements that are normally hidden */
-  .print-only {
+  /* Hide floating toolbar during printing */
+  .export-bar {
+    display: none !important;
+  }
+
+  /* Ensure the report content is visible to the print engine */
+  #report {
     display: block !important;
+    visibility: visible !important;
   }
 
-  /* Ensures content blocks don't get split across pages */
-  .card, 
-  .avoid-break,
-  #print-root .card,
-  #print-root .page-section,
-  #print-root .avoid-break {
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-    overflow: visible !important;
-  }
-  
-  /* Forces a page break before specific elements for pagination (for the 7-page output) */
-  .page-section { 
-    break-after: page; 
-    page-break-after: always; 
-  }
   .page-section:last-child { 
     break-after: auto; 
     page-break-after: auto; 
@@ -55,7 +41,7 @@ html, body {
     page-break-before: always;
   }
 
-  /* Specific chart/SVG fixes (from the code that caused the syntax error) */
+  /* Specific chart/SVG fixes */
   #print-root .si-grid {
     grid-template-columns: repeat(4, 1fr) !important;
     grid-auto-rows: 1fr !important;
@@ -66,25 +52,21 @@ html, body {
     overflow: visible !important;
   }
 
-  /* Ensures the browser prints colors and backgrounds */
   body { 
     -webkit-print-color-adjust: exact; 
     print-color-adjust: exact; 
   }
 
-  /* Helper: vertical stack for charts */
   #print-root .charts-column { display: block; }
   #print-root .charts-column > * { margin-bottom: 16px; }
 
-  /* First-page header (logo + title) */
   #print-root .report-header { text-align: center; margin: 8px 0 12px; }
   #print-root .report-header img {
     width: 140px; height: 140px; object-fit: contain;
     display: block; margin: 0 auto;
   }
   #print-root .report-title { 
-    /* You may need to add more font styles here */ 
-  } 
+  }
 }
 
 /* ======================================= */
