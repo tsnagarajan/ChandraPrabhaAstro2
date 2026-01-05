@@ -22,50 +22,70 @@ html, body {
 /* ======================================= */
 @media print {
 
-  /* Hide floating toolbar during printing */
+  /* Hide the floating export bar during printing */
   .export-bar {
     display: none !important;
   }
 
-  /* Ensure the report content is visible to the print engine */
-  #report {
+  /* Ensure the main report container is visible to the print engine */
+  #print-root {
     display: block !important;
     visibility: visible !important;
   }
 
+  /* Page break rules */
   .page-section:last-child { 
     break-after: auto; 
     page-break-after: auto; 
   }
+
   .page-break-before {
     page-break-before: always;
   }
 
-  /* Specific chart/SVG fixes */
+  /* Chart/SVG fixes */
   #print-root .si-grid {
     grid-template-columns: repeat(4, 1fr) !important;
     grid-auto-rows: 1fr !important;
     height: auto !important;
     overflow: visible !important;
   }
+
   #print-root svg {
     overflow: visible !important;
   }
 
+  /* Print colors exactly */
   body { 
     -webkit-print-color-adjust: exact; 
     print-color-adjust: exact; 
   }
 
-  #print-root .charts-column { display: block; }
-  #print-root .charts-column > * { margin-bottom: 16px; }
-
-  #print-root .report-header { text-align: center; margin: 8px 0 12px; }
-  #print-root .report-header img {
-    width: 140px; height: 140px; object-fit: contain;
-    display: block; margin: 0 auto;
+  /* Vertical stacking for charts */
+  #print-root .charts-column { 
+    display: block; 
   }
+
+  #print-root .charts-column > * { 
+    margin-bottom: 16px; 
+  }
+
+  /* First-page header */
+  #print-root .report-header { 
+    text-align: center; 
+    margin: 8px 0 12px; 
+  }
+
+  #print-root .report-header img {
+    width: 140px; 
+    height: 140px; 
+    object-fit: contain;
+    display: block; 
+    margin: 0 auto;
+  }
+
   #print-root .report-title { 
+    /* Add font styles if needed */
   }
 }
 
